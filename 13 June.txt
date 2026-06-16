@@ -1,0 +1,83 @@
+# Title                                                           BY
+
+Integrated College Management Backend System                      ~ Krishna Abhang
+
+# Description
+
+The Integrated College Management Backend System is a robust RESTful API application designed to centralize and streamline core institutional operations. 
+
+The project uses Node.js + Express.js for the backend architecture and MongoDB for the database. It demonstrates REST API development, complex CRUD operations, database connectivity, API testing, and structured relational data mapping across multiple college entities without relying on a frontend stack.
+
+# Tools & Technologies
+
+| Tool               | Purpose            |
+| ------------------ | ------------------ |
+| Node.js            | Runtime Environment|
+| Express.js         | REST API Framework |
+| MongoDB            | NoSQL Database     |
+| Mongoose           | Object Data Modeling |
+| dotenv             | Environment Config |
+| Nodemon            | Development Server |
+| Postman / Swagger  | API Testing        |
+
+# REST API Modules
+
+## Department Management
+
+POST   /department
+GET    /departments
+GET    /department/{id}
+PUT    /department/{id}
+DELETE /department/{id}
+
+## Staff Management
+
+POST   /staff
+GET    /staff
+GET    /staff/{id}
+PUT    /staff/{id}
+DELETE /staff/{id}
+
+## Student Management
+
+POST   /student
+GET    /students
+GET    /student/{id}
+PUT    /student/{id}
+DELETE /student/{id}
+
+## Book / Library Management
+
+POST   /book
+GET    /books
+GET    /book/{id}
+PUT    /book/{id}
+DELETE /book/{id}
+
+## Borrowing Operations 
+
+POST   /student/{id}/borrow/{book_id}
+POST   /student/{id}/return/{book_id}
+
+# Relationship Mapping
+
+One-to-Many
+Department -> Staff
+
+One-to-Many
+Department -> Students
+
+Many-to-Many
+Students <-> Books (Library Issuance)
+
+# Features
+
+✓ Centralized Department Management
+✓ Staff & Student Onboarding
+✓ Library Book Tracking & Issuance
+✓ Relational Data Mapping via ObjectIds
+✓ MongoDB Database Integration
+✓ RESTful API Architecture
+✓ Complete CRUD Operations for all Entities
+✓ Console-based / Backend-only Execution
+✓ Comprehensive API Testing using Postman
