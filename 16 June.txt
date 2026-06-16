@@ -1,0 +1,58 @@
+# PROJECT REPORT: Integrated College Management Backend System
+
+Submitted By: Krishna Abhang  
+Student ID: 24BCE10678  
+Program: B.Tech, Computer Science Engineering  
+
+---
+
+## Abstract
+The Integrated College Management Backend System is a robust, server-side application designed to centralize and automate core institutional operations. Traditional college management relies heavily on fragmented systems or manual record-keeping. This project resolves these inefficiencies by providing a unified RESTful API architecture built on Node.js and MongoDB. The system facilitates seamless data manipulation (CRUD operations) across four primary entities: Departments, Staff, Students, and Library Books. By utilizing NoSQL relational mapping—such as one-to-many department allocations and many-to-many library borrowing tracking—the project demonstrates a scalable foundation for modern campus administration.
+
+---
+
+## 1. Introduction
+
+### 1.1 Project Objective
+The primary objective of this project is to engineer a backend-only REST API using MongoDB to manage core college operations. The system implements complete Create, Read, Update, and Delete (CRUD) operations for cross-mapped entities, establishing strict database schemas and complex document relationships without relying on a frontend interface. 
+
+### 1.2 Scope of the System
+The system acts as a centralized data processing hub, focusing on four main modules:
+* Department Management: Creation and oversight of various academic branches.
+* Staff Allocation: Registering faculty members and associating them with specific departments.
+* Student Administration: Onboarding students and mapping their profiles to their respective academic departments.
+* Library & Resource Tracking: Managing book inventory and tracking student borrowing/returning activities.
+
+---
+
+## 2. System Requirements & Technology Stack
+
+### 2.1 Hardware Requirements
+* Processor: Intel Core i3 / AMD Ryzen 3 or higher
+* RAM: 4 GB minimum (8 GB recommended)
+* Storage: 256 GB SSD/HDD
+
+### 2.2 Software & Technologies Used
+* Runtime Environment: Node.js
+* Backend Framework: Express.js
+* Database: MongoDB (NoSQL)
+* ODM (Object Data Modeling): Mongoose
+* API Testing Tool: Postman / Swagger UI
+* Version Control: Git & GitHub
+
+---
+
+## 3. Database Architecture & Schema Design
+
+Unlike traditional SQL databases, this system utilizes MongoDB’s flexible, JSON-like document structure. To maintain relational integrity across collections, the system employs ObjectIds as reference points (Foreign Keys).
+
+### 3.1 Entity-Relationship Mapping
+* One-to-Many (Departments to Staff): A single department can host multiple staff members. The Staff schema stores a departmentId reference.
+* One-to-Many (Departments to Students): A single department enrolls multiple students. The Student schema stores a departmentId reference.
+* Many-to-Many (Students to Books): A student can borrow multiple books, and copies of a book can be borrowed by different students. The Student schema maintains an array of borrowedBooks references.
+
+### 3.2 Core Collections (Schemas)
+1. Departments Collection: _id, deptName, deptCode, hodName
+2. Staff Collection: _id, staffName, email, designation, departmentId
+3. Students Collection: _id, studentName, rollNumber, departmentId, borrowedBooks[]
+4. Books Collection: _id, title, author, isbn, isAvailable
